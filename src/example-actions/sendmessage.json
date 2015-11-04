@@ -1,8 +1,8 @@
 {
     "actionType": "SendMessage",
     "actionSettings": {
-        "chatID": 66653616,
-        "text": "пук\nпёрд",
+        "chatID": 0,
+        "text": "foo\nbar",
         "disableWebPagePreview": false,
         "replyToMessageID": 0
     }
