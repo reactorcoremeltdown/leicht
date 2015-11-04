@@ -1,0 +1,10 @@
+{
+    "token": "example-token",
+    "socket": "/tmp/example.telegram.sock",
+    "script": "/usr/local/bin/leicht_example.sh",
+    "logging": true,
+    "debug": false,
+    "logDirectory": "/var/log/leicht/",
+    "whitelistEnabled": false,
+    "whitelist": []
+}

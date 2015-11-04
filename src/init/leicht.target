@@ -1,0 +1,3 @@
+[Unit]
+Description=Leicht - Telegram bot framework
+After=multi-user.target
