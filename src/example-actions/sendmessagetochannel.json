@@ -1,0 +1,9 @@
+{
+    "actionType": "SendMessage",
+    "actionSettings": {
+        "channelUsername": "@examplechannel",
+        "text": "foo\nbar",
+        "disableWebPagePreview": false,
+        "replyToMessageID": 0
+    }
+}
