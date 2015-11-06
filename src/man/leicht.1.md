@@ -32,7 +32,7 @@ leicht aims to be a framework for building Telegram-oriented services. You can r
        Path to AF_UNIX socket of the bot. You can send a message, send a sticker or any other media to any chat by sending a special JSON-formatted action to the socket. Please refer to the *ACTIONS* section for more information
 
 **script**
-       Path to a script that should handle incoming messages. leicht invokes the script with three arguments: user name of Telegram contact, chat ID, message ID and the message text. The script should return processing results via the socket. Please refer to the *LIBRARIES* section for more information
+       Path to a script that should handle incoming messages. leicht invokes the script with four arguments: user name of Telegram contact, chat ID, message ID and the message text. The script should return processing results via the socket. Please refer to the *LIBRARIES* section for more information
 
 **logging**
        Enable or disable plaintext chat logging. Takes a boolean value(*true* or *false*)
