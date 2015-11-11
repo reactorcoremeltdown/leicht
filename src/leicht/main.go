@@ -98,6 +98,10 @@ func main() {
     }()
 
     go func() {
+        if _, err := os.Stat(CfgParams.Socket); os.IsExist(err) {
+            fmt.Errorf("Socket %s exists! Removing...\n", CfgParams.Socket)
+            os.Remove(CfgParams.Socket)
+        }
         l, err := net.ListenUnix("unix", &net.UnixAddr{CfgParams.Socket, "unix"})
         if err != nil {
             log.Fatalf("Error at: %s\n", err.Error())
@@ -123,7 +127,7 @@ func main() {
     go func() {
         for sig := range c {
             os.Remove(CfgParams.Socket)
-            fmt.Printf("Captured %v, Exiting\n", sig)
+            fmt.Errorf("Captured %v, Exiting\n", sig)
             os.Exit(0)
         }
     }()
