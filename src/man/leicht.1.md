@@ -102,6 +102,28 @@ leicht.sendMessage(1234567, 0, "Hello, buddy", false, "/tmp/example.socket");
 leicht.sendMessageToChannel("@examplechannel", 0, "Hello, buddy", false, "/tmp/example.socket");
 ```
 
+**Go**
+
+```
+package main
+
+import (
+    "log"
+    "github.com/Like-all/leicht/src/lib/golang"
+)
+
+func main () {
+    err := leicht.SendMessage( 1234567, 0, "Hello, buddy", false, "/tmp/example.socket" )
+    if err != nil {
+        log.Fatal(err)
+    }
+    err = leicht.SendMessageToChannel( "@examplechannel", 0, "Hello, buddy", false, "/tmp/example.socket" )
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
 ## TIPS AND TRICKS
 
 There is a special systemd target unit that ships with leicht. If you want to restart your services when leicht updates, you may place Requires-style dependencies from your services on the target. Here is an example:
