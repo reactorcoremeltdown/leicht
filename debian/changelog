@@ -1,6 +1,8 @@
 leicht (0.1-5) UNRELEASED; urgency=medium
 
   * Don't panic on non-essential errors
+  * Fix error handling
+  * Exclude unused fmt package
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 12 Nov 2015 12:21:08 +0200
 

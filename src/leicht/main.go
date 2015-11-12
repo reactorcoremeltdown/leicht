@@ -4,7 +4,6 @@ import (
     "log"
     "net"
     "syscall"
-    "fmt"
     "strconv"
     "time"
     "os"
@@ -138,19 +137,19 @@ func main() {
         data := []byte(msg)
         err := json.Unmarshal(data, &action)
         if err != nil {
-            log.Printf(err.Error)
+            log.Printf(err.Error())
         }
         var actionType string
         err = json.Unmarshal(*action["actionType"], &actionType)
         if err != nil {
-            log.Printf(err.Error)
+            log.Printf(err.Error())
         }
         switch actionType {
             case "SendMessage":
                 var settings tgbotapi.MessageConfig
                 err = json.Unmarshal(*action["actionSettings"], &settings)
                 if err != nil {
-                    log.Panic(err)
+                    log.Printf(err.Error())
                 }
                 bot.SendMessage(settings)
                 if CfgParams.Logging {
