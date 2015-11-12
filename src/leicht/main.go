@@ -98,7 +98,7 @@ func main() {
     }()
 
     go func() {
-        if _, err := os.Stat(CfgParams.Socket); os.IsExist(err) {
+        if _, err := os.Stat(CfgParams.Socket); err == nil {
             fmt.Errorf("Socket %s exists! Removing...\n", CfgParams.Socket)
             os.Remove(CfgParams.Socket)
         }
