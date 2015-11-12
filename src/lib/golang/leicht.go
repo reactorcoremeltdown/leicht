@@ -1,6 +1,7 @@
 package leicht
 
 import (
+    "fmt"
     "net"
     "encoding/json"
     "github.com/Syfaro/telegram-bot-api"
@@ -39,5 +40,6 @@ func SendMessage(chatID, replyToMessageID int, text string, disableWebPagePrevie
     }
 
     conn.Close()
+    fmt.Println(string(b))
     return nil
 }
