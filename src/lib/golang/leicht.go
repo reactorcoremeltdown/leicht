@@ -11,18 +11,15 @@ type action struct {
     ActionSettings interface{}
 }
 
-func SendMessage(chatID,
-                    replyToMessageID int,
-                    text string,
-                    disableWebPagePreview bool,
-                    socket string)
-                    err error {
+func SendMessage(chatID, replyToMessageID int, text string, disableWebPagePreview bool, socket string) (err error) {
     var act action
     var msg tgbotapi.MessageConfig
-    msg.ChatID = chatID
-    msg.ReplyToMessageID = replyToMessageID
-    msg.Text = text
-    msg.DisableWebPagePreview = disableWebPagePreview
+    msg = {
+        ChatID: chatID
+        ReplyToMessageID: replyToMessageID
+        Text: text
+        DisableWebPagePreview: disableWebPagePreview
+    }
 
     act.ActionType = "SendMessage"
     act.ActionSettings = msg
