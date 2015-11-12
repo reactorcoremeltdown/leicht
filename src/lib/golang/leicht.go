@@ -13,12 +13,11 @@ type action struct {
 
 func SendMessage(chatID, replyToMessageID int, text string, disableWebPagePreview bool, socket string) (err error) {
     var act action
-    var msg tgbotapi.MessageConfig
-    msg = {
-        ChatID: chatID
-        ReplyToMessageID: replyToMessageID
-        Text: text
-        DisableWebPagePreview: disableWebPagePreview
+    msg := tgbotapi.MessageConfig{
+        ChatID: chatID,
+        ReplyToMessageID: replyToMessageID,
+        Text: text,
+        DisableWebPagePreview: disableWebPagePreview,
     }
 
     act.ActionType = "SendMessage"
