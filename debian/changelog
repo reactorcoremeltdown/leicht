@@ -1,10 +1,16 @@
-leicht (0.1-5) UNRELEASED; urgency=medium
+leicht (0.1-6) UNRELEASED; urgency=medium
+
+  * postinstall added
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 12 Nov 2015 12:33:25 +0200
+
+leicht (0.1-5) unstable; urgency=medium
 
   * Don't panic on non-essential errors
   * Fix error handling
   * Exclude unused fmt package
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 12 Nov 2015 12:21:08 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 12 Nov 2015 12:33:24 +0200
 
 leicht (0.1-4) unstable; urgency=medium
 
