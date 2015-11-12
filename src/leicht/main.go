@@ -69,7 +69,7 @@ func main() {
                                             os.O_WRONLY|os.O_APPEND|os.O_CREATE,
                                             0644)
                 if err != nil {
-                    log.Fatalf("Error at: %s\n", err.Error())
+                    log.Printf("Error at: %s\n", err.Error())
                 }
                 _, err = file.WriteString("[" +
                     time.Now().Format("2006-01-02T15:04:05-07:00") +
@@ -78,7 +78,7 @@ func main() {
                     "> " +
                     update.Message.Text + "\n")
                 if err != nil {
-                    log.Fatalf("Error at: %s\n", err.Error())
+                    log.Printf("Error at: %s\n", err.Error())
                 }
                 file.Close()
             }
@@ -91,7 +91,7 @@ func main() {
                     update.Message.Text)
                 err := cmd.Start()
                 if err != nil {
-                    log.Fatalf("Error at: %s\n", err.Error())
+                    log.Printf("Error at: %s\n", err.Error())
                 }
             }
         }
@@ -99,7 +99,7 @@ func main() {
 
     go func() {
         if _, err := os.Stat(CfgParams.Socket); err == nil {
-            fmt.Errorf("Socket %s exists! Removing...\n", CfgParams.Socket)
+            log.Printf("Socket %s exists! Removing...\n", CfgParams.Socket)
             os.Remove(CfgParams.Socket)
         }
         l, err := net.ListenUnix("unix", &net.UnixAddr{CfgParams.Socket, "unix"})
@@ -127,7 +127,7 @@ func main() {
     go func() {
         for sig := range c {
             os.Remove(CfgParams.Socket)
-            fmt.Errorf("Captured %v, Exiting\n", sig)
+            log.Printf("Captured %v, Exiting\n", sig)
             os.Exit(0)
         }
     }()
@@ -138,12 +138,12 @@ func main() {
         data := []byte(msg)
         err := json.Unmarshal(data, &action)
         if err != nil {
-            log.Panic(err)
+            log.Printf(err.Error)
         }
         var actionType string
         err = json.Unmarshal(*action["actionType"], &actionType)
         if err != nil {
-            log.Panic(err)
+            log.Printf(err.Error)
         }
         switch actionType {
             case "SendMessage":
@@ -157,11 +157,11 @@ func main() {
                     logFilename := CfgParams.LogDirectory + "/" + strconv.Itoa(settings.ChatID) + ".log"
                     file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
                     if err != nil {
-                        log.Fatalf("Error at: %s\n", err.Error())
+                        log.Printf("Error at: %s\n", err.Error())
                     }
                     _, err = file.WriteString("[" + time.Now().Format("2006-01-02T15:04:05-07:00") + "] <" + bot.Self.UserName + "> " + settings.Text + "\n")
                     if err != nil {
-                        log.Fatalf("Error at: %s\n", err.Error())
+                        log.Printf("Error at: %s\n", err.Error())
                     }
                     file.Close()
                 }
