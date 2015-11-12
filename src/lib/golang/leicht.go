@@ -8,12 +8,11 @@ import (
 )
 
 type action struct {
-    ActionType string
-    ActionSettings interface{}
+    ActionType string           `json:"actionType"`
+    ActionSettings interface{}  `json:"actionSettings"`
 }
 
 func SendMessage(chatID, replyToMessageID int, text string, disableWebPagePreview bool, socket string) (err error) {
-    var act action
     msg := tgbotapi.MessageConfig{
         ChatID: chatID,
         ReplyToMessageID: replyToMessageID,
@@ -21,8 +20,10 @@ func SendMessage(chatID, replyToMessageID int, text string, disableWebPagePrevie
         DisableWebPagePreview: disableWebPagePreview,
     }
 
-    act.ActionType = "SendMessage"
-    act.ActionSettings = msg
+    act := action{
+        ActionType: "SendMessage",
+        ActionSettings: msg,
+    }
 
     b, err := json.Marshal(act)
     if err != nil {
