@@ -17,7 +17,7 @@ func sendBytesToSocket(bytes []byte, socket string) (err error) {
         return err
     }
 
-    _, err = conn.Write(b)
+    _, err = conn.Write(bytes)
     if err != nil {
         return err
     }
