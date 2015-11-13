@@ -1,8 +1,19 @@
-leicht (0.1-6) UNRELEASED; urgency=medium
+leicht (0.2-1) UNRELEASED; urgency=medium
+
+  * Release 0.2
+  * Postinstall script added
+  * Golang library added
+  * Manpage updated
+  * Improved logging
+  * Removing socket node at start(if exists)
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 13 Nov 2015 02:10:47 +0200
+
+leicht (0.1-6) unstable; urgency=medium
 
   * postinstall added
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 12 Nov 2015 12:33:25 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 13 Nov 2015 02:10:42 +0200
 
 leicht (0.1-5) unstable; urgency=medium
 
