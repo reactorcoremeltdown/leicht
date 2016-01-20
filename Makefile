@@ -33,7 +33,7 @@ leicht: Makefile src/leicht/main.go
 	$(GOC)
 
 manpages:
-	export LANG=en_US.UTF-8
+	export LANG=en_US.UTF-8 && \
 	cd $(MANSRCDIR) && \
 	$(MAKEMAN) leicht.1.md > leicht.1
 
