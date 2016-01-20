@@ -1,3 +1,6 @@
 [Unit]
 Description=Leicht - Telegram bot framework
 After=multi-user.target
+
+[Install]
+WantedBy=multi-user.target

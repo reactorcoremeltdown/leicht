@@ -91,7 +91,23 @@ There are some inter-process communication libraries which already ship with lei
 ```
 source /usr/lib/leicht/leicht.sh
 leicht_send_message 1234567 0 "Hello, buddy" false /tmp/example.socket
+#                      ^    ^       ^          ^             ^
+#                      ┃    ┃       ┃          ┃             ┃
+#                      ┃    ┃       ┃          ┃             ┗━━━━ Path to AF_UNIX socket of the bot
+#                      ┃    ┃       ┃          ┗━━━━━━━━━━━━━━━━━━ disableWebPagePreview
+#                      ┃    ┃       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ text
+#                      ┃    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ replyToMessageID
+#                      ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ chatID
+
 leicht_send_message_to_channel "@examplechannel" 0 "Hello, buddy" false /tmp/example.socket
+#                                           ^    ^       ^          ^             ^
+#                                           ┃    ┃       ┃          ┃             ┃
+#                                           ┃    ┃       ┃          ┃             ┗━━━━ Path to AF_UNIX socket of the bot
+#                                           ┃    ┃       ┃          ┗━━━━━━━━━━━━━━━━━━ disableWebPagePreview
+#                                           ┃    ┃       ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ text
+#                                           ┃    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ replyToMessageID
+#                                           ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ channelUsername
+
 ```
 
 **node.js**
@@ -99,7 +115,21 @@ leicht_send_message_to_channel "@examplechannel" 0 "Hello, buddy" false /tmp/exa
 ```
 var leicht = require('/usr/lib/leicht/leicht.js');
 leicht.sendMessage(1234567, 0, "Hello, buddy", false, "/tmp/example.socket");
+//                     ^    ^        ^           ^             ^
+//                     ┃    ┃        ┃           ┃             ┃
+//                     ┃    ┃        ┃           ┃             ┗━━ Path to AF_UNIX socket of the bot
+//                     ┃    ┃        ┃           ┗━━━━━━━━━━━━━━━━ disableWebPagePreview
+//                     ┃    ┃        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━ text
+//                     ┃    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ replyToMessageID
+//                     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ chatID
 leicht.sendMessageToChannel("@examplechannel", 0, "Hello, buddy", false, "/tmp/example.socket");
+//                                        ^    ^        ^           ^             ^
+//                                        ┃    ┃        ┃           ┃             ┃
+//                                        ┃    ┃        ┃           ┃             ┗━━ Path to AF_UNIX socket of the bot
+//                                        ┃    ┃        ┃           ┗━━━━━━━━━━━━━━━━ disableWebPagePreview
+//                                        ┃    ┃        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━ text
+//                                        ┃    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ replyToMessageID
+//                                        ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ channelUsername
 ```
 
 **Go**
