@@ -10,7 +10,8 @@ import (
     "os/exec"
     "os/signal"
     "encoding/json"
-    "github.com/Syfaro/telegram-bot-api"
+    //"github.com/Syfaro/telegram-bot-api"
+    "gopkg.in/go-telegram-bot-api/telegram-bot-api.v2"
     goopt "github.com/droundy/goopt"
 )
 
@@ -52,13 +53,13 @@ func main() {
     u := tgbotapi.NewUpdate(0)
     u.Timeout = 60
 
-    err = bot.UpdatesChan(u)
+    updates, err = bot.GetUpdatesChan(u)
     if err != nil {
         log.Panic(err)
     }
 
     go func() {
-        for update := range bot.Updates {
+        for update := range updates {
             if CfgParams.Logging {
                 logFilename := CfgParams.LogDirectory +
                     "/" +
@@ -151,7 +152,7 @@ func main() {
                 if err != nil {
                     log.Printf(err.Error())
                 }
-                bot.SendMessage(settings)
+                bot.Send(settings)
                 if CfgParams.Logging {
                     logFilename := CfgParams.LogDirectory + "/" + strconv.Itoa(settings.ChatID) + ".log"
                     file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
