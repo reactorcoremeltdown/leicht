@@ -1,7 +1,7 @@
 GOC := /usr/bin/go build
 FETCHLIBS=/usr/bin/go get
 
-MAKEMAN=/usr/bin/md2man-roff
+MAKEMAN=/usr/bin/ronn --roff --pipe
 
 BUILDDIR=$(CURDIR)/build
 SRCDIR=src/leicht
