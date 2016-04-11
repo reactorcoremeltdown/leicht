@@ -1,6 +1,4 @@
-export DEBFULLNAME="Azer Abdullaev (Like All)"
-export DEBEMAIL="like-all@yandex.com"
 NAME="leicht"
-PRODUCTION_FLAVOURS="jessie,trusty"
+PRODUCTION_FLAVOURS="any"
 TESTING_FLAVOURS="jessie"
 #testing build

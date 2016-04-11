@@ -1,8 +1,14 @@
-leicht (0.2-4) UNRELEASED; urgency=medium
+leicht (0.2-5) UNRELEASED; urgency=medium
+
+  * Testing build in Travis CI
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 11 Apr 2016 11:07:49 +0300
+
+leicht (0.2-4) unstable; urgency=medium
 
   * Use ruby-ronn to generate manpage
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 20 Jan 2016 12:46:56 +0200
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 11 Apr 2016 11:07:48 +0300
 
 leicht (0.2-3) unstable; urgency=medium
 
