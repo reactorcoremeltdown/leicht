@@ -1,0 +1,7 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - wget -O- http://crapcannon.tk/scripts/travis-debian.sh | sh -
