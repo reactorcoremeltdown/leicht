@@ -1,8 +1,14 @@
-leicht (0.2-5) UNRELEASED; urgency=medium
+leicht (0.2-6) UNRELEASED; urgency=medium
+
+  * Add ca-certificates to build dependencies
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 12 Apr 2016 21:50:05 +0300
+
+leicht (0.2-5) unstable; urgency=medium
 
   * Testing build in Travis CI
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 11 Apr 2016 11:07:49 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 12 Apr 2016 21:49:59 +0300
 
 leicht (0.2-4) unstable; urgency=medium
 
