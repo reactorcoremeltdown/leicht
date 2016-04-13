@@ -1,8 +1,14 @@
-leicht (0.2-6) UNRELEASED; urgency=medium
+leicht (0.2-7) UNRELEASED; urgency=medium
+
+  * Limit production builds only for jessie, trusty and xenial
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 13 Apr 2016 16:12:20 +0300
+
+leicht (0.2-6) unstable; urgency=medium
 
   * Add ca-certificates to build dependencies
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 12 Apr 2016 21:50:05 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 13 Apr 2016 16:12:18 +0300
 
 leicht (0.2-5) unstable; urgency=medium
 

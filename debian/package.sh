@@ -1,3 +1,5 @@
 NAME="leicht"
-PRODUCTION_FLAVOURS="any"
+PRODUCTION_FLAVOURS="jessie
+trusty
+xenial"
 TESTING_FLAVOURS="jessie"
