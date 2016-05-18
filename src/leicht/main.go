@@ -61,10 +61,18 @@ func main() {
     go func() {
         for update := range updates {
             if CfgParams.Logging {
-                logFilename := CfgParams.LogDirectory +
-                    "/" +
-                    strconv.Itoa(update.Message.Chat.ID) +
-                    ".log"
+                logFilename := ''
+                if update.Message.Chat.ID > 0 {
+                    logFilename = CfgParams.LogDirectory +
+                        "/user-" +
+                        strconv.Itoa(update.Message.Chat.ID) +
+                        ".log"
+                } else {
+                    logFilename = CfgParams.LogDirectory +
+                        "/group" +
+                        strconv.Itoa(update.Message.Chat.ID) +
+                        ".log"
+                }
                 file, err := os.OpenFile(logFilename,
                                             os.O_WRONLY|os.O_APPEND|os.O_CREATE,
                                             0644)

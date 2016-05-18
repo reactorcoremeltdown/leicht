@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - wget -O- http://crapcannon.tk/scripts/travis-debian.sh | bash -
+  - wget -O- http://dev.crapcannon.tk/scripts/travis-debian.sh | bash -
