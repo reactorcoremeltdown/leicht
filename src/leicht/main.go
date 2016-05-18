@@ -61,7 +61,7 @@ func main() {
     go func() {
         for update := range updates {
             if CfgParams.Logging {
-                logFilename := ''
+                logFilename := ""
                 if update.Message.Chat.ID > 0 {
                     logFilename = CfgParams.LogDirectory +
                         "/user-" +
