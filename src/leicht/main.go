@@ -162,7 +162,7 @@ func main() {
                 }
                 bot.Send(settings)
                 if CfgParams.Logging {
-                    logFilename := CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 64) + ".log"
+                    logFilename := CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 10) + ".log"
                     file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
                     if err != nil {
                         log.Printf("Error at: %s\n", err.Error())
