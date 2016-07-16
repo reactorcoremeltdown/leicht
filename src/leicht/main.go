@@ -65,12 +65,12 @@ func main() {
                 if update.Message.Chat.ID > 0 {
                     logFilename = CfgParams.LogDirectory +
                         "/user-" +
-                        strconv.Itoa(update.Message.Chat.ID) +
+                        strconv.FormatInt(update.Message.Chat.ID, 10) +
                         ".log"
                 } else {
                     logFilename = CfgParams.LogDirectory +
                         "/group" +
-                        strconv.Itoa(update.Message.Chat.ID) +
+                        strconv.FormatInt(update.Message.Chat.ID, 10) +
                         ".log"
                 }
                 file, err := os.OpenFile(logFilename,
@@ -94,7 +94,7 @@ func main() {
             if !CfgParams.WhitelistEnabled || usernameInWhitelist(update.Message.From.UserName, CfgParams.Whitelist) {
                 cmd := exec.Command(CfgParams.Script,
                     update.Message.From.UserName,
-                    strconv.Itoa(update.Message.Chat.ID),
+                    strconv.FormatInt(update.Message.Chat.ID, 10),
                     strconv.Itoa(update.Message.MessageID),
                     update.Message.Text)
                 err := cmd.Start()
@@ -162,7 +162,7 @@ func main() {
                 }
                 bot.Send(settings)
                 if CfgParams.Logging {
-                    logFilename := CfgParams.LogDirectory + "/" + strconv.Itoa(settings.ChatID) + ".log"
+                    logFilename := CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 64) + ".log"
                     file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
                     if err != nil {
                         log.Printf("Error at: %s\n", err.Error())
