@@ -11,7 +11,7 @@ import (
     "os/signal"
     "encoding/json"
     //"github.com/Syfaro/telegram-bot-api"
-    "gopkg.in/go-telegram-bot-api/telegram-bot-api.v2"
+    "gopkg.in/go-telegram-bot-api/telegram-bot-api.v4"
     goopt "github.com/droundy/goopt"
 )
 
