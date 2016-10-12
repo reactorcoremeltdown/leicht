@@ -103,7 +103,7 @@ func main() {
                 }
                 log.Printf("Executing script: %s %s %s %s \"%s\"\n", CfgParams.Script,
                     update.Message.From.UserName,
-                    update.Message.Chat.ID,
+                    strconv.FormatInt(update.Message.Chat.ID, 10),
                     strconv.Itoa(update.Message.MessageID),
                     update.Message.Text)
             }
