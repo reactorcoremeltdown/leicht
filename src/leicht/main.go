@@ -101,6 +101,11 @@ func main() {
                 if err != nil {
                     log.Printf("Error at: %s\n", err.Error())
                 }
+                log.Printf("Executing script: %s %s %s %s \"%s\"\n", CfgParams.Script,
+                    update.Message.From.UserName,
+                    update.Message.Chat.ID,
+                    strconv.Itoa(update.Message.MessageID),
+                    update.Message.Text)
             }
         }
     }()

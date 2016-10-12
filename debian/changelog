@@ -1,8 +1,14 @@
-leicht (0.4-2) UNRELEASED; urgency=medium
+leicht (0.5-1) UNRELEASED; urgency=medium
+
+  * Write command string to the log
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 12 Oct 2016 11:30:40 +0300
+
+leicht (0.4-2) unstable; urgency=medium
 
   * Fix integer base
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 16 Jul 2016 16:49:47 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 12 Oct 2016 11:30:38 +0300
 
 leicht (0.4-1) unstable; urgency=medium
 
