@@ -1,6 +1,7 @@
 leicht (0.6-1) UNRELEASED; urgency=medium
 
   * Handling voice files example
+  * Fix the name of FileID field
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 22:45:06 +0300
 
