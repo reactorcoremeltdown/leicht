@@ -1,6 +1,7 @@
 leicht (0.6-2) UNRELEASED; urgency=medium
 
   *  Check if Voice.FileID is not nil
+  *  Check if update.Message.Voice is not nil
 
  -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 23:05:35 +0300
 
