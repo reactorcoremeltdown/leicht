@@ -1,9 +1,15 @@
-leicht (0.6-1) UNRELEASED; urgency=medium
+leicht (0.6-2) UNRELEASED; urgency=medium
+
+  *  Check if Voice.FileID is not nil
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 23:05:35 +0300
+
+leicht (0.6-1) unstable; urgency=medium
 
   * Handling voice files example
   * Fix the name of FileID field
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 22:45:06 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 23:05:31 +0300
 
 leicht (0.5-3) unstable; urgency=medium
 

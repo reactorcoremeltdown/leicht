@@ -91,7 +91,7 @@ func main() {
 			}
 
 			if !CfgParams.WhitelistEnabled || usernameInWhitelist(update.Message.From.UserName, CfgParams.Whitelist) {
-				if update.Message.Voice.FileID != "" {
+				if update.Message.Voice.FileID != nil {
 					log.Printf("Foo bar baz")
 				}
 				cmd := exec.Command(CfgParams.Script,
