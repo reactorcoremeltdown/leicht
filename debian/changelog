@@ -1,8 +1,14 @@
-leicht (0.5-3) UNRELEASED; urgency=medium
+leicht (0.6-1) UNRELEASED; urgency=medium
+
+  * Handling voice files example
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 22:45:06 +0300
+
+leicht (0.5-3) unstable; urgency=medium
 
   * v0.5 release 
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 12 Oct 2016 11:59:33 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Wed, 28 Dec 2016 22:45:03 +0300
 
 leicht (0.5-2) unstable; urgency=medium
 
