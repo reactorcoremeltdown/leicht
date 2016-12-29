@@ -91,23 +91,27 @@ func main() {
 			}
 
 			if !CfgParams.WhitelistEnabled || usernameInWhitelist(update.Message.From.UserName, CfgParams.Whitelist) {
-				if update.Message.Voice != nil {
-					log.Printf("Foo bar baz")
-				}
-				cmd := exec.Command(CfgParams.Script,
+				var args []string
+				args = append(args,
 					update.Message.From.UserName,
 					strconv.FormatInt(update.Message.Chat.ID, 10),
-					strconv.Itoa(update.Message.MessageID),
-					update.Message.Text)
+					strconv.Itoa(update.Message.MessageID))
+				if update.Message.Voice != nil {
+					args = append(args, "handle_voice "+update.Message.Voice.FileID)
+				} else {
+					args = append(args, update.Message.Text)
+				}
+				cmd := exec.Command(CfgParams.Script, args...)
 				err := cmd.Start()
 				if err != nil {
 					log.Printf("Error at: %s\n", err.Error())
 				}
-				log.Printf("Executing script: %s %s %s %s \"%s\"\n", CfgParams.Script,
-					update.Message.From.UserName,
-					strconv.FormatInt(update.Message.Chat.ID, 10),
-					strconv.Itoa(update.Message.MessageID),
-					update.Message.Text)
+				logstring := make([]interface{}, len(args)+1)
+				logstring = append(logstring, CfgParams.Script)
+				for i := range args {
+					logstring[i+1] = args[i]
+				}
+				log.Printf("Executing script: %s %s %s %s \"%s\"\n", logstring...)
 			}
 		}
 	}()
