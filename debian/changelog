@@ -1,8 +1,14 @@
-leicht (0.6-3) UNRELEASED; urgency=medium
+leicht (0.6-4) UNRELEASED; urgency=medium
+
+  * Append CfgParams.Script to logstring properly
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Dec 2016 13:00:21 +0300
+
+leicht (0.6-3) unstable; urgency=medium
 
   * Handle voice file id within script
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Dec 2016 12:45:21 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Dec 2016 13:00:15 +0300
 
 leicht (0.6-2) unstable; urgency=medium
 

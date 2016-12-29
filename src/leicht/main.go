@@ -107,7 +107,7 @@ func main() {
 					log.Printf("Error at: %s\n", err.Error())
 				}
 				logstring := make([]interface{}, len(args)+1)
-				logstring = append(logstring, CfgParams.Script)
+				logstring[0] = CfgParams.Script
 				for i := range args {
 					logstring[i+1] = args[i]
 				}
