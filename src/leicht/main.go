@@ -97,7 +97,11 @@ func main() {
 					strconv.FormatInt(update.Message.Chat.ID, 10),
 					strconv.Itoa(update.Message.MessageID))
 				if update.Message.Voice != nil {
-					args = append(args, "handle_voice "+update.Message.Voice.FileID)
+					url, err := bot.GetFileDirectURL(update.Message.Voice.FileID)
+					if err != nil {
+						log.Printf("Error at: %s\n", err.Error())
+					}
+					args = append(args, "handle_voice "+url)
 				} else {
 					args = append(args, update.Message.Text)
 				}
