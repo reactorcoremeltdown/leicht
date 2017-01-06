@@ -1,4 +1,4 @@
-# LEICHT 1 0.2
+# LEICHT 1 0.6
 
 ## NAME
 

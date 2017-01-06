@@ -1,8 +1,14 @@
-leicht (0.6-5) UNRELEASED; urgency=medium
+leicht (0.6-6) UNRELEASED; urgency=medium
+
+  * Upload build artifacts to Bintray
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 06 Jan 2017 16:30:32 +0300
+
+leicht (0.6-5) unstable; urgency=medium
 
   * Pass direct URL of a file to the script
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 29 Dec 2016 14:29:38 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 06 Jan 2017 16:30:17 +0300
 
 leicht (0.6-4) unstable; urgency=medium
 

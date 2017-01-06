@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - wget -O- http://dev.crapcannon.tk/scripts/travis-debian.sh | bash -
+  - wget -O- https://raw.githubusercontent.com/it-the-drote/debrewery/master/debrew.sh | bash -
