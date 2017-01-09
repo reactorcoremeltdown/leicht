@@ -6,6 +6,11 @@ Build-Depends: debhelper (>= 9), golang, ruby-ronn, git, ca-certificates
 Standards-Version: 3.9.5
 Homepage: https://github.com/Like-all/leicht
 Vcs-Browser: https://github.com/Like-all/leicht/blob/master/src/man/leicht.1.md
+X-Debrew-Production-Flavours: ["jessie", "trusty", "xenial"]
+X-Debrew-Production-Architectures: ["any"]
+X-Debrew-Testing-Flavours: ["jessie"]
+X-Debrew-Testing-Architectures: ["amd64"]
+X-Debrew-Maintainer-Login: like-all
 
 Package: leicht
 Architecture: any

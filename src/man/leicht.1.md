@@ -154,6 +154,20 @@ func main () {
 }
 ```
 
+## HANDLING MEDIA
+
+Since version 0.6 leicht starts supporting various types of media, such as voice(introduced in v0.6), pictures, stickers, audio files and so on(not implemented yet).
+
+**Voice**
+
+If leicht gets voice file, it will pass a direct link to the file with leading keword *handle_voice* to the script defined in a config file.
+
+```
+"user_name" 123456 234567 "handle_voice https://path/to/file.oga"
+```
+
+Please note that this link expires in one hour.
+
 ## TIPS AND TRICKS
 
 There is a special systemd target unit that ships with leicht. If you want to restart your services when leicht updates, you may place Requires-style dependencies from your services on the target. Here is an example:

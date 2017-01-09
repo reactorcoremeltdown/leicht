@@ -1,8 +1,14 @@
-leicht (0.6-6) UNRELEASED; urgency=medium
+leicht (0.6-7) UNRELEASED; urgency=medium
+
+  * Update manpage
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 09 Jan 2017 22:20:50 +0300
+
+leicht (0.6-6) unstable; urgency=medium
 
   * Upload build artifacts to Bintray
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 06 Jan 2017 16:30:32 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 09 Jan 2017 22:20:41 +0300
 
 leicht (0.6-5) unstable; urgency=medium
 
