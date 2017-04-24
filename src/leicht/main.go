@@ -94,7 +94,7 @@ func main() {
 					os.O_WRONLY|os.O_APPEND|os.O_CREATE,
 					0644)
 				if err != nil {
-					log.Printf("Error at: %s\n", err.Error())
+					log.Printf("Could not open log file: %s\n", err.Error())
 				}
 				_, err = file.WriteString("[" +
 					time.Now().Format("2006-01-02T15:04:05-07:00") +
@@ -103,7 +103,7 @@ func main() {
 					"> " +
 					MessageText + "\n")
 				if err != nil {
-					log.Printf("Error at: %s\n", err.Error())
+					log.Printf("Could not write log file entry: %s\n", err.Error())
 				}
 				file.Close()
 			}
@@ -117,7 +117,7 @@ func main() {
 				if update.Message.Voice != nil {
 					url, err := bot.GetFileDirectURL(update.Message.Voice.FileID)
 					if err != nil {
-						log.Printf("Error at: %s\n", err.Error())
+						log.Printf("Could not get direct URL of a voice file: %s\n", err.Error())
 					}
 					args = append(args, "handle_voice "+url)
 				} else {
@@ -126,7 +126,7 @@ func main() {
 				cmd := exec.Command(CfgParams.Script, args...)
 				err := cmd.Start()
 				if err != nil {
-					log.Printf("Error at: %s\n", err.Error())
+					log.Printf("Could not execute command: %s\n", err.Error())
 				}
 				logstring := make([]interface{}, len(args)+1)
 				logstring[0] = CfgParams.Script
@@ -145,17 +145,17 @@ func main() {
 		}
 		l, err := net.ListenUnix("unix", &net.UnixAddr{CfgParams.Socket, "unix"})
 		if err != nil {
-			log.Fatalf("Error at: %s\n", err.Error())
+			log.Fatalf("Could not open UNIX socket: %s\n", err.Error())
 		}
 		for {
 			conn, err := l.AcceptUnix()
 			if err != nil {
-				log.Fatalf("Error at: %s\n", err.Error())
+				log.Fatalf("Could not accept data from UNIX socket: %s\n", err.Error())
 			}
 			var buf [1024]byte
 			n, err := conn.Read(buf[:])
 			if err != nil {
-				log.Fatalf("Error at: %s\n", err.Error())
+				log.Fatalf("Could not read from UNIX socket: %s\n", err.Error())
 			}
 			msgbus <- string(buf[:n])
 		}
@@ -179,32 +179,35 @@ func main() {
 		data := []byte(msg)
 		err := json.Unmarshal(data, &action)
 		if err != nil {
-			log.Printf(err.Error())
-		}
-		var actionType string
-		err = json.Unmarshal(*action["actionType"], &actionType)
-		if err != nil {
-			log.Printf(err.Error())
-		}
-		switch actionType {
-		case "SendMessage":
-			var settings tgbotapi.MessageConfig
-			err = json.Unmarshal(*action["actionSettings"], &settings)
+			log.Printf("Could not unmarshal incoming JSON: %s\n", err.Error())
+		} else {
+			var actionType string
+			err = json.Unmarshal(*action["actionType"], &actionType)
 			if err != nil {
-				log.Printf(err.Error())
-			}
-			bot.Send(settings)
-			if CfgParams.Logging {
-				logFilename := CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 10) + ".log"
-				file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
-				if err != nil {
-					log.Printf("Error at: %s\n", err.Error())
+				log.Printf("Could not detect action type: %s\n", err.Error())
+			} else {
+				switch actionType {
+				case "SendMessage":
+					var settings tgbotapi.MessageConfig
+					err = json.Unmarshal(*action["actionSettings"], &settings)
+					if err != nil {
+						log.Printf("Could not get action settings: %s\n", err.Error())
+					} else {
+						bot.Send(settings)
+						if CfgParams.Logging {
+							logFilename := CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 10) + ".log"
+							file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
+							if err != nil {
+								log.Printf("Could not open log file: %s\n", err.Error())
+							}
+							_, err = file.WriteString("[" + time.Now().Format("2006-01-02T15:04:05-07:00") + "] <" + bot.Self.UserName + "> " + settings.Text + "\n")
+							if err != nil {
+								log.Printf("Could not write log file entry: %s\n", err.Error())
+							}
+							file.Close()
+						}
+					}
 				}
-				_, err = file.WriteString("[" + time.Now().Format("2006-01-02T15:04:05-07:00") + "] <" + bot.Self.UserName + "> " + settings.Text + "\n")
-				if err != nil {
-					log.Printf("Error at: %s\n", err.Error())
-				}
-				file.Close()
 			}
 		}
 	}
