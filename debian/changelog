@@ -1,8 +1,14 @@
-leicht (0.6-7) UNRELEASED; urgency=medium
+leicht (0.7-1) UNRELEASED; urgency=medium
+
+  * Fixed issues/6
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 24 Apr 2017 08:59:03 -0700
+
+leicht (0.6-7) unstable; urgency=medium
 
   * Update manpage
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 09 Jan 2017 22:20:50 +0300
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 24 Apr 2017 08:58:17 -0700
 
 leicht (0.6-6) unstable; urgency=medium
 

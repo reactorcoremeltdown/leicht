@@ -57,19 +57,37 @@ func main() {
 		log.Panic(err)
 	}
 
+
 	go func() {
 		for update := range updates {
+			var MessageID int
+			var MessageText string
+			var UserID string
+			var ChatID int64
+
+			if update.Message != nil {
+				MessageID = update.Message.MessageID
+				MessageText = update.Message.Text
+				UserID = update.Message.From.UserName
+				ChatID = update.Message.Chat.ID
+			} else if update.ChannelPost != nil {
+				MessageID = update.ChannelPost.MessageID
+				MessageText = update.ChannelPost.Text
+				UserID = update.ChannelPost.Chat.Title
+				ChatID = update.ChannelPost.Chat.ID
+			}
+
 			if CfgParams.Logging {
 				logFilename := ""
-				if update.Message.Chat.ID > 0 {
+				if ChatID > 0 {
 					logFilename = CfgParams.LogDirectory +
 						"/user-" +
-						strconv.FormatInt(update.Message.Chat.ID, 10) +
+						strconv.FormatInt(ChatID, 10) +
 						".log"
 				} else {
 					logFilename = CfgParams.LogDirectory +
 						"/group" +
-						strconv.FormatInt(update.Message.Chat.ID, 10) +
+						strconv.FormatInt(ChatID, 10) +
 						".log"
 				}
 				file, err := os.OpenFile(logFilename,
@@ -81,21 +99,21 @@ func main() {
 				_, err = file.WriteString("[" +
 					time.Now().Format("2006-01-02T15:04:05-07:00") +
 					"] <" +
-					update.Message.From.UserName +
+					UserID +
 					"> " +
-					update.Message.Text + "\n")
+					MessageText + "\n")
 				if err != nil {
 					log.Printf("Error at: %s\n", err.Error())
 				}
 				file.Close()
 			}
 
-			if !CfgParams.WhitelistEnabled || usernameInWhitelist(update.Message.From.UserName, CfgParams.Whitelist) {
+			if !CfgParams.WhitelistEnabled || usernameInWhitelist(UserID, CfgParams.Whitelist) {
 				var args []string
 				args = append(args,
-					update.Message.From.UserName,
-					strconv.FormatInt(update.Message.Chat.ID, 10),
-					strconv.Itoa(update.Message.MessageID))
+					UserID,
+					strconv.FormatInt(ChatID, 10),
+					strconv.Itoa(MessageID))
 				if update.Message.Voice != nil {
 					url, err := bot.GetFileDirectURL(update.Message.Voice.FileID)
 					if err != nil {
@@ -103,7 +121,7 @@ func main() {
 					}
 					args = append(args, "handle_voice "+url)
 				} else {
-					args = append(args, update.Message.Text)
+					args = append(args, MessageText)
 				}
 				cmd := exec.Command(CfgParams.Script, args...)
 				err := cmd.Start()
