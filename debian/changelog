@@ -1,8 +1,14 @@
-leicht (0.7-2) UNRELEASED; urgency=medium
+leicht (0.7-3) UNRELEASED; urgency=medium
+
+  * First build for stretch
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 24 Jun 2017 01:23:49 -0700
+
+leicht (0.7-2) unstable; urgency=medium
 
   * Fixed #8
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Mon, 24 Apr 2017 09:40:54 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 24 Jun 2017 01:23:46 -0700
 
 leicht (0.7-1) unstable; urgency=medium
 
