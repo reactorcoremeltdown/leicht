@@ -1,8 +1,14 @@
-leicht (0.7-3) UNRELEASED; urgency=medium
+leicht (0.7-4) UNRELEASED; urgency=medium
+
+  * Stable release
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 24 Jun 2017 01:34:59 -0700
+
+leicht (0.7-3) unstable; urgency=medium
 
   * First build for stretch
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 24 Jun 2017 01:23:49 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 24 Jun 2017 01:34:56 -0700
 
 leicht (0.7-2) unstable; urgency=medium
 
