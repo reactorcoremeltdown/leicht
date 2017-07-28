@@ -5,6 +5,7 @@
     "logging": true,
     "debug": false,
     "logDirectory": "/var/log/leicht/",
+    "doNotLogBlacklisted": true,
     "whitelistEnabled": false,
     "whitelist": []
 }

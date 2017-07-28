@@ -13,6 +13,7 @@ type Config struct {
     Logging bool
     Debug bool
     LogDirectory string
+    DoNotLogBlacklisted bool
     WhitelistEnabled bool
     Whitelist []string
 }

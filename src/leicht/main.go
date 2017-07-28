@@ -90,22 +90,24 @@ func main() {
 						strconv.FormatInt(ChatID, 10) +
 						".log"
 				}
-				file, err := os.OpenFile(logFilename,
-					os.O_WRONLY|os.O_APPEND|os.O_CREATE,
-					0644)
-				if err != nil {
-					log.Printf("Could not open log file: %s\n", err.Error())
+				if CfgParams.DoNotLogBlacklisted && usernameInWhitelist(UserID, CfgParams.Whitelist) {
+					file, err := os.OpenFile(logFilename,
+						os.O_WRONLY|os.O_APPEND|os.O_CREATE,
+						0644)
+					if err != nil {
+						log.Printf("Could not open log file: %s\n", err.Error())
+					}
+					_, err = file.WriteString("[" +
+						time.Now().Format("2006-01-02T15:04:05-07:00") +
+						"] <" +
+						UserID +
+						"> " +
+						MessageText + "\n")
+					if err != nil {
+						log.Printf("Could not write log file entry: %s\n", err.Error())
+					}
+					file.Close()
 				}
-				_, err = file.WriteString("[" +
-					time.Now().Format("2006-01-02T15:04:05-07:00") +
-					"] <" +
-					UserID +
-					"> " +
-					MessageText + "\n")
-				if err != nil {
-					log.Printf("Could not write log file entry: %s\n", err.Error())
-				}
-				file.Close()
 			}
 
 			if !CfgParams.WhitelistEnabled || usernameInWhitelist(UserID, CfgParams.Whitelist) {

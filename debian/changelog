@@ -1,8 +1,14 @@
-leicht (0.7-5) UNRELEASED; urgency=medium
+leicht (0.8-1) UNRELEASED; urgency=medium
+
+  * Added doNotLogBlacklisted option
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 28 Jul 2017 07:33:45 -0700
+
+leicht (0.7-5) unstable; urgency=medium
 
   * Fixed stable release
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Tue, 04 Jul 2017 02:30:47 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 28 Jul 2017 07:33:43 -0700
 
 leicht (0.7-4) unstable; urgency=medium
 
