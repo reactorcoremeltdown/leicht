@@ -1,8 +1,14 @@
-leicht (0.8-1) UNRELEASED; urgency=medium
+leicht (0.8-2) UNRELEASED; urgency=medium
+
+  * Build testing version also for jessie
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 28 Jul 2017 07:48:12 -0700
+
+leicht (0.8-1) unstable; urgency=medium
 
   * Added doNotLogBlacklisted option
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 28 Jul 2017 07:33:45 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 28 Jul 2017 07:48:10 -0700
 
 leicht (0.7-5) unstable; urgency=medium
 
