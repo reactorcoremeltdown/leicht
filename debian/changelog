@@ -1,8 +1,14 @@
-leicht (0.8-2) UNRELEASED; urgency=medium
+leicht (0.8-3) UNRELEASED; urgency=medium
+
+  * Stable build of 0.8
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 29 Jul 2017 12:56:31 -0700
+
+leicht (0.8-2) unstable; urgency=medium
 
   * Build testing version also for jessie
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 28 Jul 2017 07:48:12 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 29 Jul 2017 12:56:26 -0700
 
 leicht (0.8-1) unstable; urgency=medium
 
