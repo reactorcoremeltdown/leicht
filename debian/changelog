@@ -1,8 +1,14 @@
-leicht (0.8-3) UNRELEASED; urgency=medium
+leicht (0.8-4) UNRELEASED; urgency=medium
+
+  * Revision bump
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 29 Jul 2017 13:13:46 -0700
+
+leicht (0.8-3) unstable; urgency=medium
 
   * Stable build of 0.8
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 29 Jul 2017 12:56:31 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 29 Jul 2017 13:13:40 -0700
 
 leicht (0.8-2) unstable; urgency=medium
 
