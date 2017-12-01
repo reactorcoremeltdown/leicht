@@ -103,8 +103,18 @@ func main() {
 			}
 
 			if CfgParams.Logging {
-				if CfgParams.DoNotLogBlacklisted && usernameInWhitelist(UserID, CfgParams.Whitelist) {
-					writeMessageToLog(ChatID, CfgParams.LogDirectory, UserID, MessageText)
+				if CfgParams.WhitelistEnabled {
+					if !CfgParams.DoNotLogBlacklisted || usernameInWhitelist(UserID, CfgParams.Whitelist) {
+						writeMessageToLog(ChatID,
+															CfgParams.LogDirectory,
+															UserID,
+															MessageText)
+					}
+				} else {
+					writeMessageToLog(ChatID,
+														CfgParams.LogDirectory,
+														UserID,
+														MessageText)
 				}
 			}
 
