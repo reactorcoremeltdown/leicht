@@ -1,8 +1,14 @@
-leicht (0.8-4) UNRELEASED; urgency=medium
+leicht (0.9-1) UNRELEASED; urgency=medium
+
+  * Refactored message logging
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 01 Dec 2017 07:10:56 -0800
+
+leicht (0.8-4) unstable; urgency=medium
 
   * Revision bump
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Sat, 29 Jul 2017 13:13:46 -0700
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 01 Dec 2017 07:10:53 -0800
 
 leicht (0.8-3) unstable; urgency=medium
 

@@ -26,6 +26,18 @@ func usernameInWhitelist(username string, whitelist []string) bool {
 	return present
 }
 
+func writeMessageToLog(logFilename, botUsername, messageText string)  {
+	file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
+	if err != nil {
+		log.Printf("Could not open log file: %s\n", err.Error())
+	}
+	_, err = file.WriteString("[" + time.Now().Format("2006-01-02T15:04:05-07:00") + "] <" + botUsername + "> " + messageText + "\n")
+	if err != nil {
+		log.Printf("Could not write log file entry: %s\n", err.Error())
+	}
+	file.Close()
+}
+
 func main() {
 
 	goopt.Description = func() string {
@@ -91,22 +103,7 @@ func main() {
 						".log"
 				}
 				if CfgParams.DoNotLogBlacklisted && usernameInWhitelist(UserID, CfgParams.Whitelist) {
-					file, err := os.OpenFile(logFilename,
-						os.O_WRONLY|os.O_APPEND|os.O_CREATE,
-						0644)
-					if err != nil {
-						log.Printf("Could not open log file: %s\n", err.Error())
-					}
-					_, err = file.WriteString("[" +
-						time.Now().Format("2006-01-02T15:04:05-07:00") +
-						"] <" +
-						UserID +
-						"> " +
-						MessageText + "\n")
-					if err != nil {
-						log.Printf("Could not write log file entry: %s\n", err.Error())
-					}
-					file.Close()
+					writeMessageToLog(logFilename, UserID, MessageText)
 				}
 			}
 
@@ -197,16 +194,9 @@ func main() {
 					} else {
 						bot.Send(settings)
 						if CfgParams.Logging {
-							logFilename := CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 10) + ".log"
-							file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
-							if err != nil {
-								log.Printf("Could not open log file: %s\n", err.Error())
-							}
-							_, err = file.WriteString("[" + time.Now().Format("2006-01-02T15:04:05-07:00") + "] <" + bot.Self.UserName + "> " + settings.Text + "\n")
-							if err != nil {
-								log.Printf("Could not write log file entry: %s\n", err.Error())
-							}
-							file.Close()
+							writeMessageToLog(CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 10) + ".log",
+																bot.Self.UserName,
+																settings.Text)
 						}
 					}
 				}
