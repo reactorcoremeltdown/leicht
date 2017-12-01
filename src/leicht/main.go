@@ -26,7 +26,20 @@ func usernameInWhitelist(username string, whitelist []string) bool {
 	return present
 }
 
-func writeMessageToLog(logFilename, botUsername, messageText string)  {
+func writeMessageToLog(chatID int64, logDirectory, botUsername, messageText string)  {
+	logFilename := ""
+	if chatID > 0 {
+		logFilename = logDirectory +
+			"/user-" +
+			strconv.FormatInt(chatID, 10) +
+			".log"
+	} else {
+		logFilename = logDirectory +
+			"/group" +
+			strconv.FormatInt(chatID, 10) +
+			".log"
+	}
+
 	file, err := os.OpenFile(logFilename, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
 	if err != nil {
 		log.Printf("Could not open log file: %s\n", err.Error())
@@ -90,20 +103,8 @@ func main() {
 			}
 
 			if CfgParams.Logging {
-				logFilename := ""
-				if ChatID > 0 {
-					logFilename = CfgParams.LogDirectory +
-						"/user-" +
-						strconv.FormatInt(ChatID, 10) +
-						".log"
-				} else {
-					logFilename = CfgParams.LogDirectory +
-						"/group" +
-						strconv.FormatInt(ChatID, 10) +
-						".log"
-				}
 				if CfgParams.DoNotLogBlacklisted && usernameInWhitelist(UserID, CfgParams.Whitelist) {
-					writeMessageToLog(logFilename, UserID, MessageText)
+					writeMessageToLog(ChatID, CfgParams.LogDirectory, UserID, MessageText)
 				}
 			}
 
@@ -194,7 +195,8 @@ func main() {
 					} else {
 						bot.Send(settings)
 						if CfgParams.Logging {
-							writeMessageToLog(CfgParams.LogDirectory + "/" + strconv.FormatInt(settings.ChatID, 10) + ".log",
+							writeMessageToLog(settings.ChatID,
+																CfgParams.LogDirectory,
 																bot.Self.UserName,
 																settings.Text)
 						}
