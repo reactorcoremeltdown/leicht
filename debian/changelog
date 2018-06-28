@@ -1,8 +1,14 @@
-leicht (0.9-3) UNRELEASED; urgency=medium
+leicht (0.9-4) UNRELEASED; urgency=medium
+
+  * Added socketMode config option
+
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 28 Jun 2018 01:03:45 -0700
+
+leicht (0.9-3) unstable; urgency=medium
 
   * (Hopefully) Finally fixed logging!
 
- -- Azer Abdullaev (Like All) <like-all@yandex.com>  Fri, 01 Dec 2017 09:42:55 -0800
+ -- Azer Abdullaev (Like All) <like-all@yandex.com>  Thu, 28 Jun 2018 01:03:42 -0700
 
 leicht (0.9-2) unstable; urgency=medium
 
