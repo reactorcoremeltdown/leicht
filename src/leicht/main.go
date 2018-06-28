@@ -157,7 +157,7 @@ func main() {
     if err != nil {
       log.Fatalf("Could not open UNIX socket: %s\n", err.Error())
     }
-    err := os.Chmod(CfgParams.Socket, CfgParams.SocketMode)
+    err = os.Chmod(CfgParams.Socket, CfgParams.SocketMode)
     if err != nil {
       log.Fatalf("Could not change permissions for UNIX socket: %s\n", err.Error())
     }

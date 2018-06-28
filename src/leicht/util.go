@@ -1,6 +1,7 @@
 package main
 
 import (
+    "os"
     "log"
     "io/ioutil"
     "encoding/json"
@@ -9,7 +10,7 @@ import (
 type Config struct {
     Token string
     Socket string
-    SocketMode int
+    SocketMode os.FileMode
     Script string
     Logging bool
     Debug bool
@@ -26,5 +27,10 @@ func LoadConfig(cfgpath string) (c *Config, err error) {
     }
     c = new(Config)
     err = json.Unmarshal(bfile, &c)
+
+    if c.Socket == "" {
+      c.Socket = "/var/run/leicht/leicht.socket"
+    }
+
     return
 }
