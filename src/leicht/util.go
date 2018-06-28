@@ -9,6 +9,7 @@ import (
 type Config struct {
     Token string
     Socket string
+    SocketMode int
     Script string
     Logging bool
     Debug bool
