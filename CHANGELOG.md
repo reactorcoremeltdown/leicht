@@ -2,6 +2,19 @@
 
 ---
 
+draft (1.x)
+
+  * Draft version roadmap
+  * Moving from debian packages to docker images
+  * Converting a manpage into a nice readme
+  * Making it possible to configure the daemon using environment variables
+  * Logging to stdout
+  * TCP(HTTP?) incoming messages loop
+  * Verifying incoming messages using permanent tokens
+  * Issuing one time verification tokens
+
+---
+
 leicht (0.9-4)
 
   * Added socketMode config option
